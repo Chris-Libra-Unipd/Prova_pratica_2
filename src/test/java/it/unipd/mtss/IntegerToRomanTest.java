@@ -3,13 +3,8 @@
  // [Christian] [Libralato] [ 2 101 047] 
 ////////////////////////////////////////////////////////////////////
 package it.unipd.mtss;  
-  
- import static org.junit.Assert.assertTrue;
- import org.junit.Test; 
-  
- /** 
-  * Unit test for simple App. 
-  */ 
+import static org.junit.Assert.assertTrue;
+import org.junit.Test; 
  public class IntegerToRomanTest  
  { 
      /** 
@@ -19,7 +14,9 @@ package it.unipd.mtss;
      public void shouldAnswerWithTrue() 
      { 
          assertTrue( true ); 
-     } 
+     }
+
+
  } 
   
  

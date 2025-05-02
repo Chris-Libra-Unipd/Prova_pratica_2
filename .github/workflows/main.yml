@@ -1,19 +1,30 @@
-name: Java CI with Maven
-
-on: [push]
+name: Strict Build Validation
+on: [push, pull_request]
 
 jobs:
-  build:
-
+  quality-gate:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 21
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: 8.0.332+9
-        cache: 'maven'
-    - name: Build with Maven
-      run: mvn -B install --file pom.xml
+      - uses: actions/checkout@v4
+      
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      
+      - name: Run quality checks
+        run: |
+          mvn -B clean verify
+          # Verifica esplicitamente le metriche
+          mvn jacoco:check # Fallisce se coverage insufficiente
+          mvn checkstyle:check # Fallisce per violazioni di stile
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-reports
+          path: |
+            target/site/jacoco/
+            target/checkstyle-result.xml
