@@ -13,7 +13,7 @@ import org.junit.Test;
      @Test 
      public void shouldAnswerWithTrue() 
      { 
-         assertTrue( true ); 
+         assertTrue( false); 
      }
 
 
