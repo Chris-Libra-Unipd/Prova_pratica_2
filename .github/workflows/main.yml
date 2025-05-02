@@ -1,34 +1,32 @@
-name: Java CI with Maven
+name: Java CI with Quality Checks
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 1.8
+    - uses: actions/checkout@v4  # Aggiornato alla versione 4
+    
+    - name: Set up JDK 8
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
-        java-version: 8.0.332+9
+        java-version: '8'
         cache: 'maven'
-    - name: Build with Maven
-      run: mvn -B install --file pom.xml
-
-    - name: Run quality checks
+    
+    - name: Build and validate
       run: |
         mvn -B clean verify
-        # Verifica esplicitamente le metriche
-        mvn jacoco:check # Fallisce se coverage insufficiente
-        mvn checkstyle:check # Fallisce per violazioni di stile
+        mvn jacoco:check
+        mvn checkstyle:check
+    
     - name: Upload reports
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # Versione corretta
       with:
-        name: build-reports
+        name: quality-reports
         path: |
           target/site/jacoco/
           target/checkstyle-result.xml
