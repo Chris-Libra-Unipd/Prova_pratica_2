@@ -1,8 +1,10 @@
-#Fri May 02 13:11:16 CEST 2025
+#Sun May 04 15:49:55 CEST 2025
 /home/mtss/proveMaven/roman-number/src/main/java/it/unipd/mtss/App.java=1746176722801
 /home/mtss/proveMaven/roman-number/src/main/java/it/unipd/mtss/IntegerToRoman.java=1746176722801
+/home/mtss/proveMaven/roman-number/src/main/java/it/unipd/mtss/RomanLetters.java=1746365089062
 /home/mtss/proveMaven/roman-number/src/main/java/it/unipd/mtss/RomanPrinter.java=1746176722801
-/home/mtss/proveMaven/roman-number/src/test/java/it/unipd/mtss/AppTest.java=1746179966441
-/home/mtss/proveMaven/roman-number/src/test/java/it/unipd/mtss/IntegerToRomanTest.java=1746181017152
+/home/mtss/proveMaven/roman-number/src/test/java/it/unipd/mtss/AppTest.java=1746366458206
+/home/mtss/proveMaven/roman-number/src/test/java/it/unipd/mtss/IntegerToRomanTest.java=1746364702561
+/home/mtss/proveMaven/roman-number/src/test/java/it/unipd/mtss/RomanLettersTest.java=1746365174348
 /home/mtss/proveMaven/roman-number/src/test/java/it/unipd/mtss/RomanPrinterTest.java=1746176722819
 configuration*?=4F3694B995485781E020CC2807C3B61DDC9EA450
