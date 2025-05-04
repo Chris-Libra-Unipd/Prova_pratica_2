@@ -1,4 +1,23 @@
 -------------------------------------------------------------------------------
 Test set: it.unipd.mtss.RomanPrinterTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in it.unipd.mtss.RomanPrinterTest
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in it.unipd.mtss.RomanPrinterTest
+test_123(it.unipd.mtss.RomanPrinterTest)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<
+          ... __ __   __  _____  [_____  _____ 
+ / ____| \ \ / / \ \ / / |_   _||_   _||_   _|
+| |       \ V /   \ V /    | |    | |    | |  
+| |        > <     > <     | |    | |    | |  
+| |____   / . \   / . \   _| |_  _| |_  _| |_ 
+ \_____| /_/ \_ \/_/  \_\|_____||_____||_____|]
+> but was:<
+          ... __ __   __  _____  [_____   _____  
+ / ____| \ \ / / \ \ / / |_   _| |_   _| |_   _| 
+| |       \ V /   \ V /    | |     | |     | |   
+| |        > <     > <     | |     | |     | |   
+| |____   / . \   / . \   _| |_   _| |_   _| |_  
+ \_____| /_/ \_\ /_/ \_\ |_____| |_____| |_____| ]
+>
+	at it.unipd.mtss.RomanPrinterTest.test_123(RomanPrinterTest.java:34)
+

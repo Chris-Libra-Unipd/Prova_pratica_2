@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.RomanPrinterTest" time="0" tests="2" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipd.mtss.RomanLettersTest" time="0.055" tests="8" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -52,23 +52,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="it.unipd.mtss.RomanPrinterTest" time="0"/>
-  <testcase name="test_123" classname="it.unipd.mtss.RomanPrinterTest" time="0">
-    <failure message="expected:&lt;... __ __   __  _____  [_____  _____ &#10; / ____| \ \ / / \ \ / / |_   _||_   _||_   _|&#10;| |       \ V /   \ V /    | |    | |    | |  &#10;| |        &gt; &lt;     &gt; &lt;     | |    | |    | |  &#10;| |____   / . \   / . \   _| |_  _| |_  _| |_ &#10; \_____| /_/ \_ \/_/  \_\|_____||_____||_____|]&#10;&gt; but was:&lt;... __ __   __  _____  [ _____   _____  &#10; / ____| \ \ / / \ \ / / |_   _| |_   _| |_   _| &#10;| |       \ V /   \ V /    | |     | |     | |   &#10;| |        &gt; &lt;     &gt; &lt;     | |     | |     | |   &#10;| |____   / . \   / . \   _| |_   _| |_   _| |_  &#10; \_____| /_/ \_\ /_/ \_\ |_____| |_____| |_____| ]&#10;&gt;" type="org.junit.ComparisonFailure"><![CDATA[org.junit.ComparisonFailure: 
-expected:<... __ __   __  _____  [_____  _____ 
- / ____| \ \ / / \ \ / / |_   _||_   _||_   _|
-| |       \ V /   \ V /    | |    | |    | |  
-| |        > <     > <     | |    | |    | |  
-| |____   / . \   / . \   _| |_  _| |_  _| |_ 
- \_____| /_/ \_ \/_/  \_\|_____||_____||_____|]
-> but was:<... __ __   __  _____  [ _____   _____  
- / ____| \ \ / / \ \ / / |_   _| |_   _| |_   _| 
-| |       \ V /   \ V /    | |     | |     | |   
-| |        > <     > <     | |     | |     | |   
-| |____   / . \   / . \   _| |_   _| |_   _| |_  
- \_____| /_/ \_\ /_/ \_\ |_____| |_____| |_____| ]
->
-	at it.unipd.mtss.RomanPrinterTest.test_123(RomanPrinterTest.java:34)
+  <testcase name="testEnumValues" classname="it.unipd.mtss.RomanLettersTest" time="0.004"/>
+  <testcase name="testFromCharInvalid" classname="it.unipd.mtss.RomanLettersTest" time="0"/>
+  <testcase name="shouldAnswerWithTrue" classname="it.unipd.mtss.RomanLettersTest" time="0"/>
+  <testcase name="testAllLettersHaveSameHeight" classname="it.unipd.mtss.RomanLettersTest" time="0"/>
+  <testcase name="testGetAsciiArtForI" classname="it.unipd.mtss.RomanLettersTest" time="0.002"/>
+  <testcase name="testGetAsciiArtForV" classname="it.unipd.mtss.RomanLettersTest" time="0.008">
+    <failure message="arrays first differed at element [0]; expected:&lt;__      [__  ]&gt; but was:&lt;__      [  __]&gt;" type="org.junit.internal.ArrayComparisonFailure"><![CDATA[org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected:<__      [__  ]> but was:<__      [  __]>
+	at it.unipd.mtss.RomanLettersTest.testGetAsciiArtForV(RomanLettersTest.java:50)
 ]]></failure>
   </testcase>
+  <testcase name="testFromCharValid" classname="it.unipd.mtss.RomanLettersTest" time="0"/>
+  <testcase name="testNoEmptyLines" classname="it.unipd.mtss.RomanLettersTest" time="0"/>
 </testsuite>

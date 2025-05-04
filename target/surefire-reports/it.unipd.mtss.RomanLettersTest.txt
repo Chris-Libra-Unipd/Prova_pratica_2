@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: it.unipd.mtss.RomanLettersTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.055 s <<< FAILURE! - in it.unipd.mtss.RomanLettersTest
+testGetAsciiArtForV(it.unipd.mtss.RomanLettersTest)  Time elapsed: 0.008 s  <<< FAILURE!
+org.junit.internal.ArrayComparisonFailure: arrays first differed at element [0]; expected:<__      [__  ]> but was:<__      [  __]>
+	at it.unipd.mtss.RomanLettersTest.testGetAsciiArtForV(RomanLettersTest.java:50)
+
