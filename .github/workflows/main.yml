@@ -4,16 +4,54 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: 8.0.332+9
-        cache: 'maven'
-    - name: Build with Maven
-      run: mvn -B install --file pom.xml
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 8.0.332+9
+          cache: 'maven'
+      
+      - name: Build with Maven
+        run: mvn -B install --file pom.xml
+      
+      # Nuovi passi per generare i badge
+      - name: Extract build metrics
+        id: metrics
+        run: |
+          # Verifica se la build è passata
+          if [ $? -eq 0 ]; then
+            echo "BUILD_STATUS=passing" >> $GITHUB_ENV
+            echo "BUILD_COLOR=green" >> $GITHUB_ENV
+          else
+            echo "BUILD_STATUS=failed" >> $GITHUB_ENV
+            echo "BUILD_COLOR=red" >> $GITHUB_ENV
+          fi
+          
+          # Estrae metriche da JaCoCo (se presente)
+          if [ -f "target/site/jacoco/index.html" ]; then
+            COVERAGE=$(grep -oP 'Line.*?>\K\d+' target/site/jacoco/index.html || echo "unknown")
+            echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
+          fi
+          
+          # Estrae errori Checkstyle (se presente)
+          if [ -f "target/checkstyle-result.xml" ]; then
+            ERRORS=$(grep -o 'errors="[0-9]*"' target/checkstyle-result.xml | cut -d'"' -f2)
+            echo "CHECKSTYLE_ERRORS=$ERRORS" >> $GITHUB_ENV
+          fi
+      
+      # Opzionale: Crea badge manuali
+      - name: Create badges
+        run: |
+          echo "[![Build](https://img.shields.io/badge/build-${{ env.BUILD_STATUS }}-${{ env.BUILD_COLOR }})](https://github.com/${{ github.repository }}/actions)" > badges.md
+          
+          if [ -n "${{ env.COVERAGE }}" ]; then
+            echo "[![Coverage](https://img.shields.io/badge/coverage-${{ env.COVERAGE }}%25-${{ env.COVERAGE > 80 && 'brightgreen' || 'orange' }})](https://github.com/${{ github.repository }}/actions)" >> badges.md
+          fi
+          
+          if [ -n "${{ env.CHECKSTYLE_ERRORS }}" ]; then
+            echo "[![Checkstyle](https://img.shields.io/badge/checkstyle-${{ env.CHECKSTYLE_ERRORS }}_errors-${{ env.CHECKSTYLE_ERRORS == 0 && 'green' || 'red' }})](https://github.com/${{ github.repository }}/actions)" >> badges.md
+          fi

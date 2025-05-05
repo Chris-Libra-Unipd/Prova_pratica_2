@@ -72,7 +72,6 @@
     
   <module name="Header">
     <property name="header" value="//////////////////////////////////////////////////////////////////// \n // [Davide] [Lorenzon] [2 101 075] \n // [Christian] [Libralato] [ 2 101 047] \n ////////////////////////////////////////////////////////////////////"/>
-    <property name="ignoreLines" value="2, 3, 4"/>
     <property name="fileExtensions" value="java"/>
   </module>
 
